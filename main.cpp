@@ -8,10 +8,10 @@ int windowWidth;
 int columnWidth;
 int rowHeight;
 
-const int amountOfColumns = 4;
-const int amountOfRows = 3;
+const int amountOfColumns = 5;
+const int amountOfRows = 4;
 
-const CHAR *str = "Hello WORLDLWL QLEL WQEL WQL!";
+const CHAR *str = "1234567890";
 
 void drawLine(HDC memDc, int startX, int startY, int finishX, int finishY);
 
@@ -147,9 +147,7 @@ void drawColumnLines(HDC memDc) {
 
 int fillCell(HDC memDc, int startX, int startY) {
     RECT textRect;
-    //TODO
-    SetRect(&textRect, startX, startY + rowHeight / 2.5, startX + columnWidth, startY + rowHeight);
-    //TODO
+    SetRect(&textRect, startX, startY, startX + columnWidth, startY + rowHeight);
     int textHeight = DrawText(memDc, (LPCSTR) str, strlen(str), &textRect,
                               DT_CENTER | DT_EDITCONTROL | DT_WORDBREAK | DT_NOCLIP);
     return textHeight;
